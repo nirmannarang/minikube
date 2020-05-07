@@ -421,9 +421,9 @@ out/minikube-%.tar.gz: $$(TAR_TARGETS_$$*)
 	tar -cvzf $@ $^
 
 .PHONY: cross-tars
-cross-tars: out/minikube-linux-amd64.tar.gz out/minikube-linux-arm64.tar.gz \
+cross-tars: out/minikube-linux-amd64.tar.gz out/minikube-linux-arm64.tar.gz \ ## Cross-compile minikube
 	    out/minikube-windows-amd64.tar.gz out/minikube-darwin-amd64.tar.gz \
-	    out/minikube-linux-s390x.tar.gz ## Cross-compile minikube
+	    out/minikube-linux-s390x.tar.gz
 	-cd out && $(SHA512SUM) *.tar.gz > SHA512SUM
 
 out/minikube-installer.exe: out/minikube-windows-amd64.exe
